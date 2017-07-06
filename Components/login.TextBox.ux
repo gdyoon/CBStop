@@ -1,0 +1,7 @@
+<Panel ux:Class="login.TextBox" isPassword="false">
+	<string ux:Property="Value" />
+	<string ux:Property="TextHint" />
+	<string ux:Property="isPassword" />
+
+	<TextBox Value="{ReadProperty Value}" Width="150" PlaceholderText="{ReadProperty TextHint}" PlaceholderColor="#c0c0c0" IsPassword="{ReadProperty isPassword}" />
+</Panel>

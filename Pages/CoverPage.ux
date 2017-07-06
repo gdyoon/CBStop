@@ -1,0 +1,11 @@
+<Page ux:Class="CoverPage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="CoverPage.js" />
+	
+	<DockPanel ClipToBounds="True"  Activated="{goLoginPage}">
+		<StackPanel Alignment="Center" Orientation="Vertical">
+			<Image File="../Assets/app_logo.png" MaxWidth="120" MaxHeight="120" />
+			<Text TextAlignment="Center" Value="충북 STOP" Margin="0, 10, 0, 0" Font="YEONSUNG" FontSize="30"  />
+		</StackPanel>
+	</DockPanel>
+</Page>

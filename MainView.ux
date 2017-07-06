@@ -1,0 +1,16 @@
+<App>
+	<iOS.StatusBarConfig Style="Light" />
+	<Android.StatusBarConfig Color="#022328" />
+	<Router ux:Name="router" />
+	<Font File="Assets/Fonts/BMYEONSUNG.ttf" ux:Global="YEONSUNG" />
+	<Font File="Assets/Fonts/TmonMonsori.ttf.ttf" ux:Global="MONSORI" />
+	<Font File="Assets/Fonts/Ya_Bold.ttf" ux:Global="YA_BOLD" />
+	<Font File="Assets/Fonts/Ya_Regular.ttf" ux:Global="YA_REGULAR" />
+	<ClientPanel>
+		<Navigator DefaultPath="main">
+			<CoverPage ux:Template="cover" router="router" />
+			<LoginPage ux:Template="login" router="router" />
+			<MainPage  ux:Template="main"  router="router" />
+		</Navigator>
+	</ClientPanel>
+</App>

@@ -1,0 +1,28 @@
+<Page ux:Class="LoginPage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="LoginPage.js" />
+	
+	<DockPanel>
+		<StackPanel Orientation="Vertical" Alignment="Center" ItemSpacing="15">
+			<Image File="../Assets/app_logo.png" MaxWidth="120" MaxHeight="120" />
+			<Text TextAlignment="Center" Value="충북 STOP" Font="YEONSUNG" FontSize="30"  />
+
+			<StackPanel Orientation="Horizontal">
+					<Image File="../Assets/ic_login_id.png" MaxWidth="30" MaxHeight="30" Margin="0,0,10,0" />
+				<!-- <login.TextBox Value="{user_id}" TextHint="ID" ValueChanged="{onValueChanged}" /> -->
+					<TextBox Value="{user_id}" Width="150" PlaceholderText="ID" PlaceholderColor="#c0c0c0" IsPassword="false"  />
+			</StackPanel>
+			
+				<StackPanel Orientation="Horizontal">
+					<Image File="../Assets/ic_login_pw.png" MaxWidth="30" MaxHeight="30"  Margin="0,0,10,0" />
+				<!-- <login.TextBox Value="{user_pw}" TextHint="PW" isPassword="true" /> -->
+					<TextBox Value="{user_pw}" Width="150" PlaceholderText="PW" PlaceholderColor="#c0c0c0" IsPassword="true" />
+			</StackPanel>
+
+			<global.ImageButton Text="카카오톡 로그인" BackgroundColor="#ffee11" ImagePath="../Assets/ic_login_kakao.png" Clicked="{Login}" />
+			<!--
+			<global.Button Text="구글 로그인"  BackgroundColor="#fffafa" />
+			-->
+		</StackPanel>
+	</DockPanel>
+</Page>
