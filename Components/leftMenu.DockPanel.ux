@@ -1,0 +1,14 @@
+<DockPanel ux:Class="leftMenu.DockPanel.SubMenu" Margin="{ReadProperty Margin}">
+	<string ux:Property="Margin" />
+	<string ux:Property="Text" />
+	<FileSource ux:Property="ImagePath" />
+
+ 	<Image  File="{ReadProperty ImagePath}" MaxWidth="35" MaxHeight="35"  Margin="0,0,10,0" Dock="Left">
+	 	<LeftMenuDropShadow />
+	</Image>
+	 	<StackPanel Orientation="Vertical" ItemSpacing="5" Alignment="CenterLeft">
+	 			<Text Value="{ReadProperty Text}" Alignment="Left" TextAlignment="Left"  Font="YA_BOLD" FontSize="20"  TextColor="#ffffff" Margin="15,0,0,0" >
+	 				<LeftMenuDropShadow />
+	 			</Text>
+	 	</StackPanel>
+</DockPanel>

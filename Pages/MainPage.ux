@@ -1,7 +1,7 @@
 <Page ux:Class="MainPage" >
 	<Router ux:Dependency="router" />
 	<JavaScript File="MainPage.js" />
-	<DropShadow ux:Class="LeftMenuDropShadow"  Size="10" Distance="3" Spread="0.05" Color="#0008" Angle="90" />
+	<DropShadow ux:Class="LeftMenuDropShadow"  Size="10" Distance="5" Spread="0.05" Color="#0008" Angle="90" />
 	<EdgeNavigator>
 		<!-- Sidebar 정의-->
 		<Panel ux:Name="sidebar" Edge="Left" Width="100%" Margin="0,0,150,0" Background="#37474f">
@@ -10,8 +10,7 @@
 				<Change shadow.Color="#0004" />
 				<Change sidebarFade.Opacity="1" />
 			</ActivatingAnimation>
-
-			<StackPanel Orientation="Vertical" Padding="15">
+			<StackPanel Orientation="Vertical" Padding="15" Margin="5, 0, 0, 0">
 				<DockPanel Margin="0, 10, 0, 20">
 					 <Image File="../Assets/app_logo.png" MaxWidth="35" MaxHeight="40"  Margin="0,0,10,0" Dock="Left" >
 					 	<LeftMenuDropShadow />
@@ -28,10 +27,19 @@
 					 	<DropShadow  Size="10" Distance="1" Spread="0.05" Color="#0008" Angle="90" />
 					 </Image>
 					 	<StackPanel Orientation="Vertical" ItemSpacing="5">
-					 			<Text Value="부메랑" Alignment="Left" TextAlignment="Left"  Font="YA_BOLD" FontSize="25"  TextColor="#ffffff" />
-					 			<Text Value="abcde@naver.com" Alignment="Left" TextAlignment="Left"  Font="YA_REGULAR" FontSize="17"  TextColor="#cccccc" />
+					 			<Text Value="부메랑" Alignment="Left" TextAlignment="Left"  Font="YA_BOLD" FontSize="25"  TextColor="#ffffff" >
+					 				<LeftMenuDropShadow />
+					 			</Text>
+					 			<Text Value="abcde@naver.com" Alignment="Left" TextAlignment="Left"  Font="YA_REGULAR" FontSize="17"  TextColor="#cccccc" >
+					 				<LeftMenuDropShadow />
+					 			</Text>
 					 	</StackPanel>
 				</DockPanel>
+		
+				<leftMenu.DockPanel.SubMenu Margin="0,5,0,0" ImagePath="../Assets/img_main_path.png" Text="길찾기" />
+				<leftMenu.DockPanel.SubMenu Margin="0,20,0,0" ImagePath="../Assets/img_main_badge.png" Text="뱃지현황" />
+				<leftMenu.DockPanel.SubMenu Margin="0,20,0,0" ImagePath="../Assets/img_main_event.png" Text="행사안내" />
+				<leftMenu.DockPanel.SubMenu Margin="0,20,0,0" ImagePath="../Assets/img_main_setting.png" Text="설정" />
 
 			</StackPanel>
 		</Panel>
@@ -55,6 +63,13 @@
 						</leftMenu.StackPanel>
 						<TextBox Width="70%" Alignment="Center" TextAlignment="Center" PlaceholderText="장소를 입력하세요" PlaceholderColor="#ffffcf"  Font="YA_REGULAR" FontSize="20" TextColor="#ffffff" />
 					</DockPanel>
+				</Panel>
+				<Panel Height="100%">
+						<ClientPanel>
+							<NativeViewHost>
+								<MapView />
+							</NativeViewHost>
+						</ClientPanel>
 				</Panel>
 			</StackPanel>
 		</DockPanel>
