@@ -1,2 +1,66 @@
 <Page ux:Class="BadgePage">
+	<Router ux:Dependency="router" />
+	<JavaScript File="BadgePage.js" />
+	<FileImageSource ux:Global="MINUS" File="../../Assets/img_minus.png" />
+	<ScrollView>
+		<StackPanel Orientation="Vertical">
+			<StackPanel Height="65" Background="#26a69a" Dock="Top">
+			<!-- 툴바 그림자 -->
+				<Shadow Size="10" Distance="2" />
+				<!-- <StatusBarBackground /> -->
+				<!-- Toolbar 패널 -->
+				<Panel Height="65">
+						<Text Value="뱃지현황" Alignment="Center"  Font="YA_REGULAR" FontSize="30" Color="White" />
+				</Panel>
+			</StackPanel>
+
+			<StackPanel Orientation="Vertical" Color="#ffffef" Padding="20" ItemSpacing="10">
+				<StackPanel Orientation="Horizontal">
+					<Text Value="내 뱃지"  Font="YA_REGULAR" FontSize="28" />
+					<Circle Width="25" Height="25" Color="#26a69a" Margin="10, 0, 0, 0">
+						<Image ux:Name="MyBadgeButton" File="../../Assets/img_plus.png" Alignment="Center" MaxWidth="15" MaxHeight="15" />
+						<DropShadow Size="10" Distance="1" Spread="0.05" Color="#0008" Angle="90" />
+						<Clicked>
+							<Toggle Target="EventTrigger" />
+
+						</Clicked>
+						<WhilePressed>
+							<Scale Factor=".80" Duration=".08" Easing="QuadraticOut"/>
+						</WhilePressed>
+					</Circle>
+				</StackPanel>
+					<Rectangle Alignment="Left" ux:Name="MyBadgeSpace" Width="0" Height="0" Color="#cccccc" CornerRadius="25" StrokeColor="#aaaaaa" StrokeWidth="1.5" Visibility="Hidden">
+						<DropShadow Size="10" Distance="1" Spread="0.05" Color="#0008" Angle="90" />
+						<Grid RowCount="4" ColumnCount="4" Padding="20">
+							<myBadge.StackPanel Row="0" Column="0"  File="../../Assets/badge1.png" TextValue="뱃지1" />
+							<myBadge.StackPanel Row="0" Column="1"  File="../../Assets/badge2.png" TextValue="뱃지2" />
+							<myBadge.StackPanel Row="0" Column="2"  File="../../Assets/badge3.png" TextValue="뱃지3" />
+							<myBadge.StackPanel Row="0" Column="3"  File="../../Assets/badge4.png" TextValue="뱃지4" />
+							<myBadge.StackPanel Row="1" Column="0"  File="../../Assets/badge5.png" TextValue="뱃지5" />
+							<myBadge.StackPanel Row="1" Column="1"  File="../../Assets/badge6.png" TextValue="뱃지6" />
+							<myBadge.StackPanel Row="1" Column="2"  File="../../Assets/badge7.png" TextValue="뱃지7" />
+							<myBadge.StackPanel Row="1" Column="3"  File="../../Assets/badge8.png" TextValue="뱃지8" />
+							<myBadge.StackPanel Row="2" Column="0"  File="../../Assets/badge9.png" TextValue="뱃지9" />
+							<myBadge.StackPanel Row="2" Column="1"  File="../../Assets/badge10.png" TextValue="뱃지10" />
+							<myBadge.StackPanel Row="2" Column="2"  File="../../Assets/badge11.png" TextValue="뱃지11" />
+							<myBadge.StackPanel Row="2" Column="3"  File="../../Assets/badge12.png" TextValue="뱃지12" />
+							<myBadge.StackPanel Row="3" Column="0"  File="../../Assets/badge13.png" TextValue="뱃지13" />
+							<myBadge.StackPanel Row="3" Column="1"  File="../../Assets/badge14.png" TextValue="뱃지14" />
+							<myBadge.StackPanel Row="3" Column="2"  File="../../Assets/badge15.png" TextValue="뱃지15" />
+							<myBadge.StackPanel Row="3" Column="3"  File="../../Assets/badge16.png" TextValue="뱃지16" />
+						</Grid>
+					</Rectangle>
+					<WhileTrue ux:Name="EventTrigger">
+						<Set MyBadgeSpace.Visibility="Visible" />
+						<Change MyBadgeButton.Source="MINUS" />
+						<Change MyBadgeSpace.Width="340" Duration="0.3" />
+						<Change MyBadgeSpace.Height="350" Duration="0.7" />
+					</WhileTrue>
+					<WhileFalse>
+						<Set MyBadgeSpace.Visibility="Hidden" />
+					</WhileFalse>
+				
+			</StackPanel>
+		</StackPanel>
+	</ScrollView> 
 </Page>
