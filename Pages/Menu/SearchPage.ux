@@ -1,2 +1,60 @@
-<Page ux:Class="SearchPage">
+<Page ux:Class="SearchPage" >
+	<Router ux:Dependency="router" />
+	<JavaScript File="SearchPage.js" />
+	<!-- <Text Value="검색 페이지 입니다." ValueChanged="{OnTextValueChanged}" /> -->
+	<ScrollView>
+		<StackPanel Orientation="Vertical">
+			<!-- 상단 툴바 -->
+			<StackPanel Height="65" Background="#26a69a" Dock="Top">
+				<!-- 툴바 그림자 -->
+					<Shadow Size="10" Distance="2" />
+					<!-- <StatusBarBackground /> -->
+					<!-- Toolbar 패널 -->
+					<Panel Height="65">
+						<DockPanel>
+							<TextBox Width="70%" Value="{SearchedValue}" Alignment="Center" TextAlignment="Center" PlaceholderText="장소를 입력하세요" PlaceholderColor="#ffffcf"  Font="YA_REGULAR" FontSize="20" TextColor="#ffffff" />
+							<Panel>
+								<Image File="../../Assets/img_main_search.png" Alignment="Right" MaxWidth="25" MaxHeight="25"  Margin="0,0,20,0" />
+									<WhilePressed>
+									   <!-- 누르면 발생하는 이벤트를 만들까 ? -->
+									</WhilePressed>
+							</Panel>
+						</DockPanel>
+					</Panel>
+			</StackPanel>
+
+			<Panel Height="1" Background="#ccc" Margin="0, 10, 0, 0" />
+			<Text Value="카테고리" Margin="10,3,0,3" Font="YA_BOLD" FontSize="20" />
+			<Panel Height="1" Background="#ccc"/>
+			<StackPanel Orientation="Horizontal" Height="100" Background="#fff" Padding="10, 15, 10, 0" Alignment="Center">
+				<StackPanel Orientation="Vertical" Margin="5, 0, 5, 0">
+					<Image File="../../Assets/img_search_historic.png" Alignment="Center" MaxWidth="50" MaxHeight="50" />
+					<Text Value="유적지" Font="YA_REGULAR" FontSize="18" Alignment="Center" Margin="0, 10, 0, 0" />
+				</StackPanel>
+				<StackPanel Orientation="Vertical" Margin="5, 0, 5, 0">
+					<Image File="../../Assets/img_search_camping.png" Alignment="Center" MaxWidth="50" MaxHeight="50" />
+					<Text Value="캠핑" Font="YA_REGULAR" FontSize="18" Alignment="Center" Margin="0, 10, 0, 0" />
+				</StackPanel>
+				<StackPanel Orientation="Vertical" Margin="5, 0, 5, 0">
+					<Image File="../../Assets/img_search_tree.png" Alignment="Center" MaxWidth="50" MaxHeight="50" />
+					<Text Value="가로수길" Font="YA_REGULAR" FontSize="18" Alignment="Center" Margin="0, 10, 0, 0" />
+				</StackPanel>
+				<StackPanel Orientation="Vertical" Margin="5, 0, 5, 0">
+					<Image File="../../Assets/img_search_fest.png" Alignment="Center" MaxWidth="50" MaxHeight="50" />
+					<Text Value="축제, 공연" Font="YA_REGULAR" FontSize="18" Alignment="Center" Margin="0, 10, 0, 0" />
+				</StackPanel>
+				<StackPanel Orientation="Vertical" Margin="5, 0, 5, 0">
+					<Image File="../../Assets/img_search_food.png" Alignment="Center" MaxWidth="50" MaxHeight="50" />
+					<Text Value="식당" Font="YA_REGULAR" FontSize="18" Alignment="Center" Margin="0, 10, 0, 0" />
+				</StackPanel>
+				<StackPanel Orientation="Vertical" Margin="5, 0, 5, 0">
+					<Image File="../../Assets/img_search_bed.png" Alignment="Center" MaxWidth="50" MaxHeight="50" />
+					<Text Value="숙박" Font="YA_REGULAR" FontSize="18" Alignment="Center" Margin="0, 10, 0, 0" />
+				</StackPanel>
+			</StackPanel>
+			<Panel Height="1" Background="#ccc" Margin="0, 10, 0, 0" />
+			<Text Value="검색 결과" Margin="10,3,0,3" Font="YA_BOLD" FontSize="20" />
+			<Panel Height="1" Background="#ccc"/>
+		</StackPanel>
+	</ScrollView>
 </Page>

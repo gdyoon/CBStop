@@ -1,2 +1,3 @@
 <Page ux:Class="SearchDetailPage">
+	<Router ux:Dependency="router" />
 </Page>
