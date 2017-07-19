@@ -11,6 +11,12 @@ FileSource 태그를 정의해
 <Image File="..." 형태로 이때 파일의 경로는 반드시 현재 디렉토리가 아닌 루트 디렉토리 기준으로 파일을 접근할 것
 
 */
+var Items = [
+ {"label":"가"},
+  {"label":"나"},
+   {"label":"다"},
+    {"label":"라"}
+];
 
 var SearchedDataList = [
 	{"id": "1", "name":"대추나무집민박", "icon":"Assets/img_search_bed.png", "address":"충청북도 보은군 속리산면 사내안길 7"},
@@ -34,6 +40,8 @@ function GoToPlaceDetailPage(arg)
 }
 
 module.exports = {
+
+	Items : Items,
 	SearchedValue : SearchedValue,
 	SearchedDataList : SearchedDataList,
 	OnTextValueChanged : OnTextValueChanged,

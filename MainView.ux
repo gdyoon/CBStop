@@ -6,6 +6,7 @@
 	<Font File="Assets/Fonts/TmonMonsori.ttf.ttf" ux:Global="MONSORI" />
 	<Font File="Assets/Fonts/Ya_Bold.ttf" ux:Global="YA_BOLD" />
 	<Font File="Assets/Fonts/Ya_Regular.ttf" ux:Global="YA_REGULAR" />
+	<Font File="Assets/Fonts/FontAwesome.otf" ux:Global="FONTAWESOME" />
 	<ClientPanel>
 		<Navigator DefaultPath="main">
 			<CoverPage ux:Template="cover" router="router" />

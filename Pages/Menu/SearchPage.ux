@@ -2,23 +2,56 @@
 	<Router ux:Dependency="router" />
 	<JavaScript File="../js/SearchPage.js" />
 	<ScrollView>
-		<StackPanel Orientation="Vertical">
+		<!--
+<Text ux:Class="comboBox.Item" Value="{ReadProperty Value}" Alignment="Center" Color="White" Font="YA_REGULAR" FontSize="30">
+					<string ux:Property="Value" />
+					<WhilePressed>
+						<Scale Factor=".90" Duration=".08" Easing="QuadraticOut"/>
+					</WhilePressed>
+					<Clicked>
+							<Toggle Target="EventTrigger" />
+					</Clicked>
+				</Text>
+			-->
+		<StackPanel> 
+			<!--
+			<Rectangle ux:Name="ComboBox" LayoutRole="Inert" Width="150" Height="30%" Color="Black" CornerRadius="20" Opacity="0.7" Visibility="Visible">
+				<StackPanel Margin="20" ItemSpacing="10" Alignment="Center">
+					<comboBox.Item Value="장소명" />
+					<comboBox.Item Value="지역명" />
+				</StackPanel>
+				<WhileTrue ux:Name="EventTrigger">
+					<Change ComboBox.Visibility="Hidden" />
+				</WhileTrue>
+			</Rectangle>
+-->
+			<!--
+			<StackPanel  ux:Name="ComboBox" LayoutRole="Inert" >
+				<Rectangle  Color="Black"  Opacity="0.7"  Height="30" Width="200">
+				</Rectangle>
+			</StackPanel>
+			-->
 			<!-- 상단 툴바 -->
-			<StackPanel Height="65" Background="#26a69a" Dock="Top">
+			<StackPanel Height="65" Background="#26a69a">
 				<!-- 툴바 그림자 -->
 					<Shadow Size="10" Distance="2" />
 					<!-- <StatusBarBackground /> -->
 					<!-- Toolbar 패널 -->
 					<Panel Height="65">
-						<DockPanel>
-							<TextBox Width="70%" Value="{SearchedValue}" Alignment="Center" TextAlignment="Center" PlaceholderText="장소를 입력하세요" PlaceholderColor="#ffffcf"  Font="YA_REGULAR" FontSize="20" TextColor="#ffffff" />
-							<Panel>
-								<Image File="../../Assets/img_main_search.png" Alignment="Right" MaxWidth="25" MaxHeight="25"  Margin="0,0,20,0" />
-									<WhilePressed>
-									   <!-- 누르면 발생하는 이벤트를 만들까 ? -->
-									</WhilePressed>
+						<Grid ColumnCount="8">
+							<Panel ColumnSpan="2" HitTestMode="LocalBoundsAndChildren" >
+								<Rectangle StrokeWidth="1.5" StrokeColor="#999" Color="#eee" Opacity="0.8" Margin="10,17,10,17" CornerRadius="20">
+									<Text Margin="-12,0,0,0" ux:Name="SelectedItem" Value="장소" Alignment="Center" FontSize="18" Font="YA_REGULAR" />
+									<Text Margin="5,5,8,5" Value="&#xf0d7;" Font="FONTAWESOME" FontSize="20" Alignment="CenterRight" />
+									<Tapped>
+										
+									</Tapped>
+								</Rectangle>
 							</Panel>
-						</DockPanel>
+						
+							<TextBox ColumnSpan="5" Width="100%" Value="{SearchedValue}" Alignment="Center" TextAlignment="Center" PlaceholderText="검색할 키워드를 입력해주세요" PlaceholderColor="#ffffcf"  Font="YA_REGULAR" FontSize="20" TextColor="#ffffff" />
+							<Image ColumnSpan="1"  File="../../Assets/img_main_search.png" Alignment="Center" MaxWidth="25" MaxHeight="25" />
+						</Grid>
 					</Panel>
 			</StackPanel>
 
@@ -62,5 +95,6 @@
 			</Each>
 
 		</StackPanel>
+	
 	</ScrollView>
 </Page>
