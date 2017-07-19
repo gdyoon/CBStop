@@ -13,14 +13,12 @@ FileSource 태그를 정의해
 */
 
 var SearchedDataList = [
-	{"id": "1", "name":"대추나무집민박", "icon":"Assets/img_search_bed.png"},
-	{"id": "2", "name":"너와두리농촌캠핑장", "icon":"Assets/img_search_camping.png"},
-	{"id": "3", "name":"청남대 진입로", "icon":"Assets/img_search_tree.png"},
-	{"id": "4", "name":"공군제17전투비행단진입로", "icon":"Assets/img_search_tree.png"},
-	{"id": "5", "name":"신토불이 보은점", "icon":"Assets/img_search_food.png"},
+	{"id": "1", "name":"대추나무집민박", "icon":"Assets/img_search_bed.png", "address":"충청북도 보은군 속리산면 사내안길 7"},
+	{"id": "2", "name":"너와두리농촌캠핑장", "icon":"Assets/img_search_camping.png", "address":"충청북도 옥천군 청성면 한두레로 387"},
+	{"id": "3", "name":"청남대 진입로", "icon":"Assets/img_search_tree.png", "address":"청남대길"},
+	{"id": "4", "name":"공군제17전투비행단진입로", "icon":"Assets/img_search_tree.png", "address":"공군제17전투비행단진입로"},
+	{"id": "5", "name":"신토불이 보은점", "icon":"Assets/img_search_food.png", "address":"충청북도 보은군 보은읍 남부로 5100"}
 ];
-
-
 
 
 function OnTextValueChanged()
@@ -28,8 +26,16 @@ function OnTextValueChanged()
 
 }
 
+function GoToPlaceDetailPage(arg)
+{
+	var selected_place = arg.data;
+
+	router.push('place', selected_place);
+}
+
 module.exports = {
 	SearchedValue : SearchedValue,
 	SearchedDataList : SearchedDataList,
-	OnTextValueChanged : OnTextValueChanged
+	OnTextValueChanged : OnTextValueChanged,
+	GoToPlaceDetailPage : GoToPlaceDetailPage
 }

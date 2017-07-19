@@ -1,5 +1,47 @@
 <Page ux:Class="PlaceDetailPage">
 	<Router ux:Dependency="router" />
 	<JavaScript File="../js/PlaceDetailPage.js" />
-	<Text Value="장소 상세보기 페이지 입니다 . ." />
+	<StackPanel Orientation="Vertical" Width="100%" Height="100%">
+		<StackPanel Height="65" Background="#26a69a" Dock="Top">
+			<!-- 툴바 그림자 -->
+				<Shadow Size="10" Distance="2" />
+				<Panel Height="65">
+						<Text Value="상세보기" Alignment="Center"  Font="YA_REGULAR" FontSize="30" Color="White" />
+				</Panel>
+			</StackPanel>
+		<Panel ux:Name="MapDetail" Width="100%" Height="200">
+		</Panel>
+		<Panel Height="1" Color="#ccc" />
+		<Grid ColumnCount="3">
+			<StackPanel ColumnSpan="2"  Padding="20">
+				<Text Value="{place_name}" Color="Black" Font="YA_REGULAR" FontSize="25" />
+				<Text  Value="{place_address}" Color="#999999" Font="YA_REGULAR" FontSize="18" Margin="0, 5, 0, 0" />
+			</StackPanel>
+			<Panel ColumnSpan="1" Padding="15">
+				<Circle StrokeWidth="2">
+					<Image Width="40" Height="40" File="../../Assets/img_detail_map.png" StretchMode="Uniform" />
+				</Circle>
+			</Panel>
+		</Grid>
+
+		<Panel Height="1" Color="#ccc" Margin="0, 30, 0, 0"/>
+
+		<Text Value="발자취 남기기" Margin="15,5,0,5" Font="YA_BOLD" FontSize="18" />
+		<Panel Height="1" Background="#ccc"/>
+			
+			<!-- 사용자 댓글 등록 -->
+			<Grid ColumnCount="8" Padding="10">
+				<Image ColumnSpan="1" Width="30" File="../../Assets/img_main_user2.png" />
+				<TextBox ColumnSpan="6" Width="95%" Alignment="Center" TextAlignment="Center" PlaceholderText="발자취를 남겨주세요" PlaceholderColor="#999999"  Font="YA_REGULAR" FontSize="20" TextColor="#000" />
+				<Rectangle ColumnSpan="1" Color="#999999" CornerRadius="10">
+					<Text Value="등록" Alignment="Center" Color="White" Font="YA_REGULAR" FontSize="17"  />
+					<DropShadow Angle="90" Distance="3" Spread="0.01" Color="#00000040" />
+					<WhilePressed>
+						<Scale Factor=".90" Duration=".08" Easing="QuadraticOut"/>
+					</WhilePressed>
+				</Rectangle>
+			</Grid>
+
+	
+	</StackPanel>
 </Page>

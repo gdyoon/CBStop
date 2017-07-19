@@ -58,7 +58,7 @@
 			<!-- 검색 결과 목록 -->
 	
 			<Each Items="{SearchedDataList}">
-				<searchedPlace.StackPanel ImagePath="{icon}" PlaceName="{name}" />
+				<searchedPlace.StackPanel ImagePath="{icon}" PlaceName="{name}" Clicked="{GoToPlaceDetailPage}" />
 			</Each>
 
 		</StackPanel>
