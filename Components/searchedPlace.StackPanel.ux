@@ -1,0 +1,9 @@
+<StackPanel ux:Class="searchedPlace.StackPanel" Orientation="Horizontal" HitTestMode="LocalBoundsAndChildren" Padding="15, 10, 0, 0" >
+	<FileSource ux:Property="ImagePath" />
+	<string ux:Property="PlaceName" />
+
+	<Circle Width="40" Height="40" StrokeWidth="1.5">
+    	<ImageFill File="{ReadProperty ImagePath}" StretchMode="Uniform" />
+	</Circle>
+	<Text Value="{ReadProperty PlaceName}" Font="YA_REGULAR" FontSize="22" Color="Black" Alignment="Center" Margin="10, 0, 0, 0"  />
+</StackPanel>

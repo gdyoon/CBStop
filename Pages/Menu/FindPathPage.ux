@@ -1,3 +1,5 @@
 <Page ux:Class="FindPathPage">
-
+	<Router ux:Dependency="router" />
+	<JavaScript File="../js/FindPathPage.js" />
+	<Text Value="길찾기 페이지 입니다 . ." />
 </Page>

@@ -1,0 +1,7 @@
+<StackPanel ux:Class="myBadge.StackPanel" Orientation="Vertical">
+	<FileSource ux:Property="File" />
+	<string ux:Property="TextValue" />
+
+	<Image  File="{ReadProperty File}" Alignment="Center" MinWidth="1"  MaxWidth="50" MaxHeight="50" />
+	<Text Value="{ReadProperty TextValue}" FontSize="19" Color="Black" Alignment="Center" Margin="0, 5, 0, 0" Font="YA_REGULAR"/>
+</StackPanel>

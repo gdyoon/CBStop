@@ -1,10 +1,11 @@
 <Page ux:Class="MainPage" >
 	<Router ux:Dependency="router" />
 	<JavaScript File="MainPage.js" />
+	<!-- 좌측 메뉴에 적용할 그림자 -->
 	<DropShadow ux:Class="LeftMenuDropShadow"  Size="10" Distance="5" Spread="0.05" Color="#0008" Angle="90" />
 	<EdgeNavigator>
-		<!-- Sidebar 정의-->
-		<Panel ux:Name="sidebar" Edge="Left" Width="100%" Margin="0,0,150,0" Background="#37474f">
+		<!-- 왼쪽 메뉴 패널 -->
+		<Panel ux:Name="LeftMenuBar" Edge="Left" Width="100%" Margin="0,0,150,0" Background="#37474f">
 			<Shadow ux:Name="shadow" Angle="180" Distance="8" Size="16" Color="#0000" />
 			<ActivatingAnimation>
 				<Change shadow.Color="#0004" />
@@ -22,7 +23,7 @@
 				<Panel Width="100%" Height="1" Background="#fff" >
 							<LeftMenuDropShadow />
 				</Panel>
-				<DockPanel Margin="0, 30, 0, 20">
+				<DockPanel Margin="0, 30, 0, 5">
 					 <Image  File="../Assets/img_main_user.png" MaxWidth="50" MaxHeight="50"  Margin="0,0,10,0" Dock="Left">
 					 	<DropShadow  Size="10" Distance="1" Spread="0.05" Color="#0008" Angle="90" />
 					 </Image>
@@ -36,17 +37,17 @@
 					 	</StackPanel>
 				</DockPanel>
 		
-				<leftMenu.DockPanel.SubMenu Margin="0,5,0,0" ImagePath="../Assets/img_main_path.png" Text="길찾기" />
-				<leftMenu.DockPanel.SubMenu Margin="0,20,0,0" ImagePath="../Assets/img_main_badge.png" Text="뱃지현황" />
-				<leftMenu.DockPanel.SubMenu Margin="0,20,0,0" ImagePath="../Assets/img_main_event.png" Text="행사안내" />
-				<leftMenu.DockPanel.SubMenu Margin="0,20,0,0" ImagePath="../Assets/img_main_setting.png" Text="설정" />
-
+				<!-- 좌측 메뉴 리스트 -->
+				<leftMenu.DockPanel.SubMenu Margin="0,20,0,0" ImagePath="../Assets/img_main_path.png" Text="길찾기" Clicked="{goFindPathPage}" />
+				<leftMenu.DockPanel.SubMenu Margin="0,20,0,0" ImagePath="../Assets/img_main_badge.png" Text="뱃지현황" Clicked="{goBadgePage}" />
+				<leftMenu.DockPanel.SubMenu Margin="0,20,0,0" ImagePath="../Assets/img_main_event.png" Text="행사안내" Clicked="{goEventPage}"/>
+				<leftMenu.DockPanel.SubMenu Margin="0,20,0,0" ImagePath="../Assets/img_main_setting.png" Text="설정" Clicked="{goSettingPage}"/>
 			</StackPanel>
 		</Panel>
 		
 		<!-- 가운데 클라이언트 패널 -->
 		<DockPanel Color="#ffffef">
-			<!-- Sidebar를 펼치고 남은 공간에 사각형 객체 표시 -->
+			<!-- LeftMenuBar를 펼치고 남은 공간에 사각형 개체 표시 -->
 			<Rectangle ux:Name="sidebarFade" Layer="Overlay" Color="#0005" Opacity="0" HitTestMode="None" />
 			<!-- 최상단 Toolbar -->
 			<StackPanel Dock="Top" Color="#26a69a">
@@ -58,20 +59,31 @@
 					<DockPanel>
 						<leftMenu.StackPanel Alignment="CenterLeft">
 							<Clicked>
-								<NavigateToggle Target="sidebar" />
+								<NavigateToggle Target="LeftMenuBar" />
 							</Clicked>
 						</leftMenu.StackPanel>
-						<TextBox Width="70%" Alignment="Center" TextAlignment="Center" PlaceholderText="장소를 입력하세요" PlaceholderColor="#ffffcf"  Font="YA_REGULAR" FontSize="20" TextColor="#ffffff" />
+						<TextBox Width="70%" Value="{SearchedValue}" Alignment="Center" TextAlignment="Center" PlaceholderText="장소를 입력하세요" PlaceholderColor="#ffffcf"  Font="YA_REGULAR" FontSize="20" TextColor="#ffffff" />
+						<Panel Clicked="{goSearchPage}" >
+							<Image File="../Assets/img_main_search.png" Alignment="Right" MaxWidth="25" MaxHeight="25"  Margin="0,0,20,0" />
+								<WhilePressed>
+								   <!-- 누르면 발생하는 이벤트를 만들까 ? -->
+								</WhilePressed>
+						</Panel>
 					</DockPanel>
 				</Panel>
-				<Panel Height="100%">
+			</StackPanel>
+
+			<!-- GoogleMap 불러오기
+				<Panel>
 						<ClientPanel>
 							<NativeViewHost>
-								<MapView />
+								<MapView Latitude="59.911567" Longitude="10.741030" Zoom="10">
+									<MapMarker Latitude="59.911567" Longitude="10.741030" Label="Fuse HQ"/>
+								</MapView>
 							</NativeViewHost>
 						</ClientPanel>
 				</Panel>
-			</StackPanel>
+				 -->
 		</DockPanel>
 	</EdgeNavigator>
 </Page>

@@ -10,7 +10,15 @@
 		<Navigator DefaultPath="main">
 			<CoverPage ux:Template="cover" router="router" />
 			<LoginPage ux:Template="login" router="router" />
-			<MainPage  ux:Template="main"  router="router" />
+			<MainPage ux:Template="main" router="router" />
+
+			<!-- Menu -->
+			<SearchPage ux:Template="search" router="router" />
+			<PlaceDetailPage ux:Template="place" router="router" />
+			<FindPathPage ux:Template="findpath" router="router" />
+			<BadgePage ux:Template="badge" router="router" />
+			<EventPage ux:Template="event_" router="router" />
+			<SettingPage ux:Template="setting" router="router" />
 		</Navigator>
 	</ClientPanel>
 </App>

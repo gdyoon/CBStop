@@ -5,21 +5,21 @@
 	<DockPanel>
 		<StackPanel Orientation="Vertical" Alignment="Center" ItemSpacing="15">
 			<Image File="../Assets/app_logo.png" MaxWidth="120" MaxHeight="120" />
-			<Text TextAlignment="Center" Value="충북 STOP" Font="YEONSUNG" FontSize="30"  />
+			<Text TextAlignment="Center" Value="충북 STOP" Font="YA_BOLD" FontSize="30"  />
 
 			<StackPanel Orientation="Horizontal">
-					<Image File="../Assets/ic_login_id.png" MaxWidth="30" MaxHeight="30" Margin="0,0,10,0" />
+					<Image File="../Assets/ic_login_id.png" MaxWidth="20" MaxHeight="20" Margin="0,0,10,0" />
 				<!-- <login.TextBox Value="{user_id}" TextHint="ID" ValueChanged="{onValueChanged}" /> -->
-					<TextBox Value="{user_id}" Width="150" PlaceholderText="ID" PlaceholderColor="#c0c0c0" IsPassword="false"  />
+					<TextBox Value="{user_id}" Width="150" PlaceholderText="아이디" FontSize="13" PlaceholderColor="#c0c0c0" IsPassword="false"  />
 			</StackPanel>
 			
 				<StackPanel Orientation="Horizontal">
-					<Image File="../Assets/ic_login_pw.png" MaxWidth="30" MaxHeight="30"  Margin="0,0,10,0" />
+					<Image File="../Assets/ic_login_pw.png" MaxWidth="20" MaxHeight="20"  Margin="0,0,10,0" />
 				<!-- <login.TextBox Value="{user_pw}" TextHint="PW" isPassword="true" /> -->
-					<TextBox Value="{user_pw}" Width="150" PlaceholderText="PW" PlaceholderColor="#c0c0c0" IsPassword="true" />
+					<TextBox Value="{user_pw}" Width="150" PlaceholderText="비밀번호" FontSize="13"  PlaceholderColor="#c0c0c0" IsPassword="true" />
 			</StackPanel>
 
-			<global.ImageButton Text="카카오톡 로그인" BackgroundColor="#ffee11" ImagePath="../Assets/ic_login_kakao.png" Clicked="{Login}" />
+			<ImageButton Text="카카오톡 로그인" TextSize="18" BackgroundColor="#ffee11" ImagePath="../Assets/ic_login_kakao.png" Clicked="{Login}" />
 			<!--
 			<global.Button Text="구글 로그인"  BackgroundColor="#fffafa" />
 			-->

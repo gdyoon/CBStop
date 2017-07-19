@@ -1,7 +1,6 @@
 <Page ux:Class="SearchPage" >
 	<Router ux:Dependency="router" />
-	<JavaScript File="SearchPage.js" />
-	<!-- <Text Value="검색 페이지 입니다." ValueChanged="{OnTextValueChanged}" /> -->
+	<JavaScript File="../js/SearchPage.js" />
 	<ScrollView>
 		<StackPanel Orientation="Vertical">
 			<!-- 상단 툴바 -->
@@ -55,6 +54,13 @@
 			<Panel Height="1" Background="#ccc" Margin="0, 10, 0, 0" />
 			<Text Value="검색 결과" Margin="10,3,0,3" Font="YA_BOLD" FontSize="20" />
 			<Panel Height="1" Background="#ccc"/>
+
+			<!-- 검색 결과 목록 -->
+	
+			<Each Items="{SearchedDataList}">
+				<searchedPlace.StackPanel ImagePath="{icon}" PlaceName="{name}" />
+			</Each>
+
 		</StackPanel>
 	</ScrollView>
 </Page>

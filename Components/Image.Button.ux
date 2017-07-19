@@ -1,0 +1,20 @@
+<Panel ux:Class="ImageButton" Padding="5" TextSize="15" ImagePath="../Assets/app_logo.png" TextColor="#000">
+	<string ux:Property="Text" />
+	<string ux:Property="TextSize" />
+	<string ux:Property="TextColor" />
+	<string ux:Property="BackgroundColor" />
+	<Uno.UX.FileSource ux:Property="ImagePath" />
+
+	<Rectangle Layer="Background" Color="{ReadProperty BackgroundColor}" CornerRadius="3" >
+		<DropShadow Angle="90" Distance="1.5" Spread="0.01" Color="#00000040" />
+	</Rectangle>
+
+	<DockPanel>
+		<Image File="{ReadProperty ImagePath}" MaxWidth="20" MaxHeight="20"  Margin="0,0,10,0" Dock="Left" />
+		<Text Value="{ReadProperty Text}" Alignment="Center" TextAlignment="Center" Font="YA_REGULAR" FontSize="{ReadProperty TextSize}" TextColor="{ReadProperty TextColor}" />
+	</DockPanel>
+
+	<WhilePressed>
+		<Scale Factor=".95" Duration=".08" Easing="QuadraticOut"/>
+	</WhilePressed>
+</Panel>

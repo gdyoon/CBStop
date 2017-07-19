@@ -7,6 +7,14 @@
   ],
   "Includes": [
     "*",
-    "Pages/*.js:Bundle"
-  ]
+    "Pages/js/*.js:Bundle",
+    "Assets/*.png:Bundle"
+  ],
+
+"Android": {
+  "Geo": {
+    "ApiKey": "AIzaSyD5jP-Um4wOJrrrNE2stNEHS3r4aLpmIeU"
+  }
+}
+
 }

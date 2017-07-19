@@ -1,3 +1,217 @@
 <Page ux:Class="EventPage">
+    <Router ux:Dependency="router" />
+    <JavaScript File="../js/EventPage.js" />
+    <!-- 색상 정보를 담고 있는 전역 데이터 -->
+    <float4 ux:Global="Green" ux:Value="#75AE30" />
+    <float4 ux:Global="Blue" ux:Value="#37A1D7" />
+    <float4 ux:Global="Orange" ux:Value="#FF9803" />
+    <float4 ux:Global="Pink" ux:Value="#F58F87" />
+    <float4 ux:Global="Teal" ux:Value="#26a69a" />
+    <float4 ux:Global="Brown" ux:Value="#8d6e63" />
+<ClientPanel >
 
+<Panel  Dock="Top" Height="60">
+    <!-- 현재 어떤 탭인지 사각형 나타내는 인디케이터 -->
+    <Rectangle ux:Name="indicator" CornerRadius="30" Color="Green" LayoutMaster="p1" Margin="0,10" Width="100%" ZOffset="0.1"/>
+    <!-- 인디케이터의 사각형 넓이 -->
+    <Grid ColumnCount="4" Margin="0,0">
+        <Panel ux:Name="p1" Column="0" ColumnSpan="2"/>
+        <Panel ux:Name="p6" Column="5" ColumnSpan="2"/>
+    </Grid>
+
+    <Grid ZOffset="1" Margin="-10,0">
+        <Column ux:Name="col1" Width="1" WidthMetric="Proportion"/>
+        <Column ux:Name="col2" Width="1" WidthMetric="Proportion"/>
+        <Column ux:Name="col3" Width="1" WidthMetric="Proportion"/>
+        <Column ux:Name="col4" Width="1" WidthMetric="Proportion"/>
+        <Column ux:Name="col5" Width="1" WidthMetric="Proportion"/>
+        <Column ux:Name="col6" Width="1" WidthMetric="Proportion"/>
+
+        <!-- 탭 이름과 탭 이미지를 정의한 클래스 -->
+        <Text ux:Class="TabHeader" Color="White" Alignment="CenterLeft" Opacity="0" Margin="5,0,0,0" MinWidth="100" Font="YA_REGULAR" FontSize="18"  />
+        <Image ux:Class="TabIcon" Width="25" Height="25" />
+
+        <!-- 상단 탭 별 메뉴 패널  -->
+
+        <!-- 유적지 탭 -->
+        <Panel HitTestMode="LocalBounds">
+            <Grid Columns="auto,1*" Margin="20,0" Alignment="Left">
+                <TabIcon ux:Name="c1" File="../../Assets/img_search_historic.png" Color="Green"/>
+                <TabHeader ux:Name="h1" Value="유적지" />
+            </Grid>
+            <Clicked>
+                <Set nav.Active="HistoricPage" />
+            </Clicked>
+        </Panel>
+        <!-- 캠핑 탭 -->
+        <Panel HitTestMode="LocalBounds">
+            <Grid Columns="auto,1*" Margin="10,0" Alignment="Left">
+                <TabIcon ux:Name="c2" File="../../Assets/img_search_camping.png" Color="Blue"/>
+                <TabHeader ux:Name="h2" Value="캠핑"/>
+            </Grid>
+            <Clicked>
+                <Set nav.Active="CampingPage" />
+            </Clicked>
+        </Panel>
+        <!-- 가로수길 탭 -->
+        <Panel HitTestMode="LocalBounds">
+            <Grid Columns="auto,1*" Margin="10,0" Alignment="Left">
+                <TabIcon ux:Name="c3" File="../../Assets/img_search_tree.png" Color="Orange"/>
+                <TabHeader ux:Name="h3" Value="가로수길"/>
+            </Grid>
+            <Clicked>
+                <Set nav.Active="TreePage" />
+            </Clicked>
+        </Panel>
+        <!-- 축제, 공연 탭 -->
+        <Panel HitTestMode="LocalBounds">
+            <Grid Columns="auto,1*" Margin="10,0" Alignment="Left">
+                <TabIcon ux:Name="c4" File="../../Assets/img_search_fest.png" Color="Pink" />
+                <TabHeader ux:Name="h4" Value="축제, 공연"/>
+            </Grid>
+            <Clicked>
+                <Set nav.Active="FestPage" />
+            </Clicked>
+        </Panel>
+        <Panel HitTestMode="LocalBounds">
+            <Grid Columns="auto,1*" Margin="10,0" Alignment="Left">
+                <TabIcon ux:Name="c5" File="../../Assets/img_search_food.png" Color="Teal" />
+                <TabHeader ux:Name="h5" Value="식당"/>
+            </Grid>
+            <Clicked>
+                 <Set nav.Active="FoodPage" />
+            </Clicked>
+        </Panel>
+        <Panel HitTestMode="LocalBounds">
+            <Grid Columns="auto,1*" Margin="5,0" Alignment="Left">
+                <TabIcon ux:Name="c6" File="../../Assets/img_search_bed.png" Color="Brown" />
+                <TabHeader ux:Name="h6" Value="숙박"/>
+            </Grid>
+            <Clicked>
+                <Set nav.Active="BedPage" />
+            </Clicked>
+        </Panel>
+    </Grid>
+</Panel>
+
+<!-- 페이지 컨트롤 및 페이지별 상세내용 안드로이드의 ViewPager 와 비슷한 기능? -->
+<PageControl ux:Name="nav">
+            <NavigationMotion GotoEasing="BackOut" />
+            <Attractor ux:Name="indicatorColorAttractor" Target="indicator.Color" Value="Green" />
+            <Rectangle ux:Name="bgColor" Layer="Background" Color="Green" Opacity="0.12"/>
+            <Attractor ux:Name="bgColorAttractor" Target="bgColor.Color" Value="Green" />
+    
+
+            <WhileTrue ux:Name="shrinkIndicatorWidth">
+                <Change indicator.Width="90" Duration="0.25"/>
+            </WhileTrue>
+
+            <Image ux:Class="PagePlaceholder" Margin="100" StretchMode="Uniform" ContentAlignment="Center"/>
+
+            <!-- 유적지 페이지 -->
+            <Page ux:Name="HistoricPage">
+                <PagePlaceholder File="../../Assets/img_search_historic.png"/>
+                <WhileActive Threshold="0.5">
+                    <Set shrinkIndicatorWidth.Value="false" />
+                    <Set indicatorColorAttractor.Value="Green" />
+                    <Set bgColorAttractor.Value="Green" />
+                    
+                </WhileActive>
+                <ActivatingAnimation>
+                    <Change h1.Opacity="1" />
+                    <Change col1.Width="2" />
+                    <Change c1.Color="White" />
+                </ActivatingAnimation>
+            </Page>
+            <!-- 캠핑 페이지 -->
+            <Page ux:Name="CampingPage">
+                <PagePlaceholder File="../../Assets/img_search_camping.png" />
+                <WhileActive Threshold="0.5">
+                    <Set shrinkIndicatorWidth.Value="true" />
+                    <Set indicatorColorAttractor.Value="Blue" />
+                    <Set bgColorAttractor.Value="Blue" />
+                
+                </WhileActive>
+                <ActivatingAnimation>
+                    <Change h2.Opacity="1" />
+                    <Change col2.Width="2" />
+                    <Change c2.Color="White" />
+                </ActivatingAnimation>
+            </Page>
+
+            <!-- 가로수길 페이지 -->
+            <Page ux:Name="TreePage">
+                <PagePlaceholder File="../../Assets/img_search_tree.png" />
+                <WhileActive Threshold="0.5">
+                    <Set shrinkIndicatorWidth.Value="true" />
+                    <Set indicatorColorAttractor.Value="Orange" />
+                    <Set bgColorAttractor.Value="Orange" />
+                    
+                </WhileActive>
+                <ActivatingAnimation>
+                    <Change h3.Opacity="1" />
+                    <Change col3.Width="2" />
+                    <Change c3.Color="White" />
+                </ActivatingAnimation>
+            </Page>
+            <!-- 축제 페이지 -->
+            <Page ux:Name="FestPage">
+                <PagePlaceholder File="../../Assets/img_search_fest.png" />
+                <WhileActive Threshold="0.5">
+                    <Set shrinkIndicatorWidth.Value="false" />
+                    <Set indicatorColorAttractor.Value="Pink" />
+                    <Set bgColorAttractor.Value="Pink" />
+                    
+                </WhileActive>
+                <!--
+                <ActivatingAnimation Scale="0.333">
+                    <Move Target="indicator" X="1" RelativeTo="PositionOffset" RelativeNode="p5"/> 
+                </ActivatingAnimation>
+                -->
+                <ActivatingAnimation>
+                    <Change h4.Opacity="1" />
+                    <Change col4.Width="2" />
+                    <Change c4.Color="White" />
+                </ActivatingAnimation>
+            </Page>
+            <!-- 식당 페이지 -->
+            <Page ux:Name="FoodPage">
+                <PagePlaceholder File="../../Assets/img_search_food.png" />
+                <WhileActive Threshold="0.5">
+                    <Set shrinkIndicatorWidth.Value="false" />
+                    <Set indicatorColorAttractor.Value="Teal" />
+                    <Set bgColorAttractor.Value="Teal" />
+                    
+                </WhileActive>
+                <!--
+                <ActivatingAnimation Scale="0.3">
+                    <Move Target="indicator" X="1" RelativeTo="PositionOffset" RelativeNode="p5"/>
+                </ActivatingAnimation>
+                -->
+                <ActivatingAnimation>
+                    <Change h5.Opacity="1" />
+                    <Change col5.Width="2" />
+                    <Change c5.Color="White" />
+                </ActivatingAnimation>
+            </Page>
+            <!-- 숙박 페이지 -->
+            <Page ux:Name="BedPage">
+                <PagePlaceholder File="../../Assets/img_search_bed.png" />
+                <WhileActive Threshold="0.5">
+                    <Set shrinkIndicatorWidth.Value="false" />
+                    <Set indicatorColorAttractor.Value="Brown" />
+                    <Set bgColorAttractor.Value="Brown" />
+                </WhileActive>
+                <ActivatingAnimation Scale="0.2">
+                    <Move Target="indicator" X="1" RelativeTo="PositionOffset" RelativeNode="p6"/>
+                </ActivatingAnimation>
+                <ActivatingAnimation>
+                    <Change h6.Opacity="1" />
+                    <Change col6.Width="2" />
+                    <Change c6.Color="White" />
+                </ActivatingAnimation>
+            </Page>
+
+        </PageControl>
+    </ClientPanel>
 </Page>
